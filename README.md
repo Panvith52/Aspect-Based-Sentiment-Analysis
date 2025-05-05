@@ -40,8 +40,9 @@ Before running the code, ensure you have the following installed:
 * **NumPy:** For numerical operations.
 * **Scikit-learn:** For evaluation metrics.
 * **Matplotlib/Seaborn:** (Optional) For data visualization.
+* **Google Colab:** A web browser.
 
-A `requirements.txt` file is included in this repository to help you install the necessary packages.
+A `requirements.txt` file is included in this repository to help you install the necessary packages.  These can be installed in your Google Colab environment.
 
 ## Installation
 
@@ -52,76 +53,55 @@ A `requirements.txt` file is included in this repository to help you install the
     cd <your_repository_name>
     ```
 
-2.  **Create a virtual environment (recommended):**
-
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Linux/macOS
-    venv\Scripts\activate  # On Windows
-    ```
+2.  **Open in Google Colab:**
+    * Open a Google Colab notebook.
+    * Upload the cloned repository (or the notebook file, if separate) to your Google Drive or Colab environment.
 
 3.  **Install the requirements:**
 
-    ```bash
-    pip install -r requirements.txt
+    In a Colab cell, run:
+
+    ```python
+    !pip install -r requirements.txt
     ```
 
 ## Execution
 
-The following steps outline how to run the code:
+The following steps outline how to run the code within the Google Colab notebook:
 
 1.  **Prepare the dataset:**
     * Download the SemEval 2014 Task 4 laptop reviews dataset.
-    * Place the dataset files in the appropriate directory (the code assumes a specific directory structure, which should be documented or configurable).
-    * If necessary, run any data preprocessing scripts provided to convert the data into the required format.  ( *Add details here about preprocessing scripts, if any.*)
+    * Place the dataset files in the appropriate directory within your Google Colab environment (e.g., upload them to a specific folder).  The notebook assumes a specific directory structure, so adjust paths as needed.
+    * Run the data preprocessing steps provided in the notebook to convert the data into the required format.  The notebook should contain the necessary code for this.
 
 2.  **Configure the training:**
-    * (If applicable) Modify the configuration file (e.g., `config.py`, `config.json`) to set training parameters such as:
-        * `model_name`:  "distilbert-base-uncased" (or the specific DistilBERT variant)
-        * `batch_size`:  The batch size for training.
-        * `learning_rate`:  The learning rate for the optimizer.
-        * `num_epochs`:  The number of training epochs.
-        * `data_dir`: The directory where the dataset is located.
-        * `output_dir`: The directory to save the trained model.
+    * The Google Colab notebook should contain a section where training parameters are defined.  Modify these parameters directly within the notebook:
+        * `model_name`: "distilbert-base-uncased" (or the specific DistilBERT variant)
+        * `batch_size`: The batch size for training.
+        * `learning_rate`: The learning rate for the optimizer.
+        * `num_epochs`: The number of training epochs.
+        * `data_dir`: The directory where the dataset is located (within Colab).
+        * `output_dir`: The directory to save the trained model (within Colab, or to Google Drive).
         * `max_seq_length`: The maximum sequence length.
-    * ( *Add details about your configuration system.*)
 
-3.  **Run the training script:**
-
-    ```bash
-    python train.py  # Or the name of your training script
-    ```
-    * This script will:
+3.  **Run the notebook:**
+    * Execute the cells in the Google Colab notebook sequentially.  This will:
         * Load the dataset.
         * Load the pre-trained DistilBERT model.
         * Fine-tune the model on the training data.
-        * Save the trained model to the specified output directory.
-
-4.  **Evaluate the model:**
-
-    ```bash
-    python evaluate.py  # Or the name of your evaluation script
-    ```
-     * This script will:
-        * Load the trained model.
         * Evaluate the model on the test data.
-        * Print the evaluation metrics (e.g., accuracy, F1-score).
-
-5.  **(Optional) Inference/Prediction:**
-    * If you have an inference or prediction script, provide instructions on how to use it.  For example:
-    ```bash
-    python predict.py --text "The laptop has a great display, but the battery life is short." --aspects "display,battery"
-    ```
+        * Display the evaluation metrics.
+        * Save the trained model (if specified in the notebook).
 
 ## Results
 
-The results of the model evaluation will be displayed on the console after running the `evaluate.py` script.  The key metrics to consider are:
+The results of the model evaluation will be displayed within the Google Colab notebook after the training and evaluation cells have been executed. The key metrics to consider are:
 
 * **Accuracy:** Overall percentage of correctly predicted aspect-sentiment pairs.
 * **Precision, Recall, F1-score:** For each sentiment class (positive, negative, neutral, conflict).
 * **Macro/Micro F1-score:** Overall performance across all sentiment classes.
 
-A more detailed analysis of the results, including any visualizations or error analysis, should be included in a separate section or file (e.g., a Jupyter Notebook).  (*Add a link to your results analysis if applicable.*)
+The notebook may also contain additional analysis, visualizations, or error analysis.
 
 ## Contributing
 
